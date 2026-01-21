@@ -1,6 +1,6 @@
 
 # DANTEPOS_Retail &Wholesale
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+<p align="center"><a href="https://pos.dantepos.com" target="_blank"><img width="488" height="119" alt="Image" src="https://github.com/user-attachments/assets/2f5a71aa-ebf5-49eb-a976-fb94d80bcf36" />
 <img width="960" height="419" alt="Image" src="https://github.com/user-attachments/assets/9be32f61-367e-4b3e-aa45-3e6416fd13e2" />
 
 <p align="center">
