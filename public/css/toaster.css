@@ -1,0 +1,75 @@
+/* General Toastr Customizations */
+#toast-container > .toast {
+    background-color: #f4f4f4;
+    color: #333;
+    font-family: 'Arial', sans-serif;
+    font-size: 12px;
+    border-radius: 8px;
+    padding: 10px 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 8px;
+    width: 250px; /* Adjust the width */
+}
+
+/* Success Toast */
+#toast-container > .toast-success {
+    border-left: 5px solid #28a745;
+}
+
+/* Error Toast */
+#toast-container > .toast-error {
+    border-left: 5px solid #dc3545;
+}
+
+/* Warning Toast */
+#toast-container > .toast-warning {
+    border-left: 5px solid #ffc107;
+}
+
+/* Toast Title Customization */
+#toast-container > .toast .toast-title {
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+/* Toast Message Customization */
+#toast-container > .toast .toast-message {
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+/* Adjust Close Button */
+#toast-container > .toast .toast-close-button {
+    font-size: 10px;
+    top: 5px;
+    right: 8px;
+    color: #999;
+}
+
+/* Fade-in and Fade-out Animations */
+#toast-container > .toast {
+    opacity: 0;
+    transform: translateY(-10px);
+    animation: fadeInToast 0.3s ease-in-out forwards, fadeOutToast 0.3s ease-in-out 3s forwards;
+}
+
+@keyframes fadeInToast {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeOutToast {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}

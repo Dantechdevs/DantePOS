@@ -1,0 +1,34 @@
+
+.autocomplete-item {
+    display: flex;
+    align-items: center;
+    padding: 8px 12px;
+    font-size: 14px;
+}
+
+.autocomplete-item .code {
+    width: 80px;
+    color: #007bff;
+    font-weight: 500;
+    margin-right: 15px;
+}
+
+.autocomplete-item .details {
+    flex-grow: 1;
+}
+
+.autocomplete-item .name {
+    font-weight: 500;
+    margin-bottom: 4px;
+}
+
+.autocomplete-item .meta {
+    display: flex;
+    justify-content: space-between;
+    color: #6c757d;
+    font-size: 0.9em;
+}
+
+.autocomplete-item .prices span {
+    margin-left: 15px;
+}

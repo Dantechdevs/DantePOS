@@ -1,0 +1,147 @@
+/* Style the DataTables buttons */
+.dt-buttons .btn {
+    margin: 5px;
+    /* Add spacing between buttons */
+    padding: 8px 15px;
+    /* Add padding for a better feel */
+    font-size: 14px;
+    transition: all 0.3s ease-in-out;
+}
+
+.dt-buttons .btn:hover {
+    transform: scale(1.05);
+    /* Slight hover zoom effect */
+}
+
+/* Style pagination buttons */
+.dataTables_paginate .paginate_button {
+    padding: 6px 12px;
+    margin: 2px;
+    border-radius: 5px;
+    /* Rounded edges */
+    border: 1px solid #ddd;
+    background-color: #f8f9fa;
+    color: #007bff;
+    font-weight: 500;
+    transition: all 0.3s ease-in-out;
+}
+
+.dataTables_paginate .paginate_button:hover {
+    background-color: #007bff;
+    color: white !important;
+}
+
+.dataTables_paginate .paginate_button.current {
+    background-color: #007bff;
+    color: white !important;
+    border: 1px solid #007bff;
+}
+
+/* Style the search box */
+.dataTables_filter input {
+    width: 300px;
+    border-radius: 20px;
+    border: 1px solid #ddd;
+    padding: 8px 15px;
+    margin-left: 10px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+}
+
+.dataTables_filter input:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Add spacing between table rows */
+ tbody tr {
+    height: 50px;
+}
+
+/* Adjust table header appearance */
+ thead th {
+    background-color: #f1f1f1;
+    font-weight: bold;
+}
+
+/* Pagination container */
+.dataTables_paginate {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+/* Circular pagination buttons */
+.dataTables_paginate .paginate_button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    margin: 0 5px;
+    border: 1px solid #ddd;
+    border-radius: 50%;
+    /* Ensures fully circular buttons */
+    background-color: #fff;
+    color: #007bff;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow */
+}
+
+/* Hover effect */
+.dataTables_paginate .paginate_button:hover {
+    background-color: #007bff;
+    color: white !important;
+    border-color: #007bff;
+}
+
+/* Current/active page button */
+.dataTables_paginate .paginate_button.current {
+    background-color: #007bff;
+    color: white !important;
+    border-color: #007bff;
+    font-weight: bold;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+    /* Stronger shadow for active button */
+}
+
+/* Disabled buttons (like 'previous' or 'next' on boundary pages) */
+.dataTables_paginate .paginate_button.disabled {
+    background-color: #f8f9fa;
+    color: #6c757d !important;
+    border-color: #ddd;
+    cursor: not-allowed;
+}
+
+/* Previous/Next buttons */
+.dataTables_paginate .paginate_button.previous,
+.dataTables_paginate .paginate_button.next {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+    background-color: #fff;
+    border-radius: 50%;
+    border: 1px solid #ddd;
+}
+
+/* Hover effect for Previous/Next buttons */
+.dataTables_paginate .paginate_button.previous:hover,
+.dataTables_paginate .paginate_button.next:hover {
+    background-color: #007bff;
+    color: white !important;
+    border-color: #007bff;
+}
+
+/* Add smooth animations */
+.dataTables_paginate .paginate_button {
+    transition: all 0.2s ease-in-out;
+}

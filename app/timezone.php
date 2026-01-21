@@ -1,0 +1,3 @@
+<?php
+
+$timezone = 'Asia/Kabul';

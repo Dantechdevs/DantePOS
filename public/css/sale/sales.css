@@ -1,0 +1,420 @@
+body {
+    font-family: 'Arial', sans-serif;
+    font-size: 14px;
+    color: #212529;
+}
+
+.content-wrapper {
+    padding: 20px;
+    background-color: #f8f9fa;
+}
+
+/* .card {
+                border-radius: 8px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            } */
+.card {
+    border-radius: 12px 12px 0 0;
+    /* Top-left and top-right rounded, bottom corners square */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+    background-color: #007bff;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 15px;
+    border-radius: 8px 8px 0 0;
+}
+
+.card-body {
+    padding: 20px;
+    background-color: white;
+    border-radius: 0 0 8px 8px;
+}
+
+.form-control {
+    border-radius: 6px;
+    padding: 8px;
+    font-size: 14px;
+    color: #212529;
+}
+
+.form-control:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.25);
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    padding: 8px 15px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #004085;
+}
+
+/* Table Styles */
+.table {
+    margin: 0;
+    border-collapse: collapse;
+    /* Remove spacing between table cells */
+    width: 100%;
+    /* Ensure table width adjusts */
+}
+
+.table-responsive {
+    overflow-x: auto;
+}
+
+.table thead th {
+    position: sticky;
+    top: 0;
+    /* Keep table headers sticky when scrolling vertically */
+    background-color: #007bff;
+    /* Match header background */
+    z-index: 10;
+    /* Ensure headers appear above table body */
+    text-align: center;
+    font-size: 14px;
+    color: white;
+    padding: 8px;
+}
+
+.table tbody td {
+    text-align: center;
+    vertical-align: middle;
+    padding: 8px;
+    font-size: 14px;
+}
+
+.table tbody td input {
+    padding: 5px;
+    font-size: 14px;
+    text-align: center;
+}
+
+.quantity-decrease,
+.quantity-increase {
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    text-align: center;
+    border-radius: 50%;
+}
+
+.quantity {
+    width: 50px;
+    /* Ensure input field is appropriately sized */
+    font-size: 14px;
+    text-align: center;
+    margin: 0 5px;
+    /* Add spacing between buttons and input */
+}
+
+.total-amount {
+    font-weight: bold;
+    color: #28a745;
+}
+
+/* Compact Summary Section */
+/* Summary Section */
+.summary-section {
+    background-color: #ffffff;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+.summary-section h5 {
+    font-size: 16px;
+    font-weight: bold;
+    color: #495057;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+
+.summary-section .form-group label {
+    font-size: 14px;
+    font-weight: bold;
+    color: #495057;
+}
+
+.summary-section .form-control-sm {
+    font-size: 14px;
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid #ced4da;
+}
+
+.summary-section .form-control-sm:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.25);
+}
+
+.summary-section .input-group .form-control-sm {
+    border-radius: 8px 0 0 8px;
+}
+
+.summary-section .input-group-append .form-control-sm {
+    border-radius: 0 8px 8px 0;
+}
+
+.summary-table {
+    width: 100%;
+    margin-top: 15px;
+}
+
+.summary-table th,
+.summary-table td {
+    font-size: 14px;
+    padding: 8px;
+    text-align: right;
+    color: #495057;
+}
+
+.summary-table th {
+    font-weight: bold;
+}
+
+.summary-table td strong {
+    color: #007bff;
+}
+
+.add-sale-button {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Autocomplete Styling */
+.ui-autocomplete {
+    max-height: 150px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    font-size: 12px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    padding: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.ui-autocomplete .ui-menu-item {
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.ui-autocomplete .ui-menu-item:hover {
+    background-color: #f5f5f5;
+    transform: scale(1.02);
+}
+
+.ui-autocomplete .ui-menu-item span:first-child {
+    font-weight: bold;
+    color: #ff0000;
+}
+
+.ui-autocomplete .ui-menu-item span:nth-child(2) {
+    font-weight: bold;
+    color: green;
+}
+
+
+.select2-container .select2-selection--single {
+    height: 30px !important;
+    /* Match the input field size */
+    font-size: 14px;
+    /* Ensure the font size matches other inputs */
+    line-height: 30px !important;
+    /* Align the text vertically */
+    padding: 2px 8px;
+    /* Add some padding */
+    border-radius: 6px;
+    /* Match the rounded corners */
+    border: 1px solid #ced4da;
+    /* Default border */
+    background-color: #fff;
+    /* Background color */
+}
+
+.select2-container .select2-selection--single .select2-selection__rendered {
+    padding-left: 0 !important;
+    /* Align text with the input */
+    font-size: 14px;
+    /* Font size consistency */
+    color: #212529;
+    /* Text color */
+}
+
+.select2-container .select2-selection--single .select2-selection__arrow {
+    height: 30px !important;
+    /* Match the select height */
+    width: 30px;
+    /* Maintain consistent size */
+}
+
+.select2-container--default .select2-selection--single {
+    border-color: #ced4da !important;
+    /* Default border for Select2 */
+}
+
+.select2-container--default .select2-selection--single:focus {
+    border-color: #007bff !important;
+    /* Blue border on focus */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.25);
+    /* Add focus effect */
+}
+
+/* Fix issue with vertical and horizontal overflow */
+.table-container {
+    max-height: 300px;
+    /* Set max height for vertical scrolling */
+    overflow-y: auto;
+    /* Enable vertical scrolling */
+    overflow-x: auto;
+    /* Enable horizontal scrolling */
+    border: 1px solid #ddd;
+    /* Add a border for clarity */
+    border-radius: 8px;
+    /* Rounded corners for container */
+    background-color: #fff;
+    /* Clean background color */
+}
+
+.table-container::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+.table-container::-webkit-scrollbar-thumb {
+    background: #007bff;
+    /* Scrollbar color */
+    border-radius: 4px;
+}
+
+.table-container::-webkit-scrollbar-thumb:hover {
+    background: #0056b3;
+    /* Darker on hover */
+}
+
+
+/* Input group styling */
+.searchUsers .form-control {
+    border-right: none;
+    /* Seamless transition to the button */
+    height: calc(1.5rem + 2px);
+    /* Ensure consistent height */
+}
+
+.input-group-append-btn .btn {
+    height: calc(1.5rem + 2px);
+    /* Match the input field's height */
+    padding: 0 8px;
+    /* Adjust padding for compact look */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-left: none;
+    /* Remove border overlap */
+}
+
+.input-group-append-btn .btn i {
+    font-size: 14px;
+    /* Adjust icon size for better alignment */
+}
+
+
+
+.radio-group {
+    display: flex;
+    gap: 16px;
+    margin-top: 8px;
+}
+
+.radio-option {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 10px 16px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    border: 1px solid #e0e0e0;
+    flex: 1;
+    justify-content: center;
+}
+
+.radio-option:hover {
+    background-color: #f8f9fa;
+    border-color: #c0c0c0;
+}
+
+.radio-option input[type="radio"] {
+    display: none;
+}
+
+.radio-custom {
+    width: 18px;
+    height: 18px;
+    border: 2px solid #6c757d;
+    border-radius: 50%;
+    margin-right: 8px;
+    position: relative;
+    transition: all 0.2s ease;
+}
+
+.radio-option input[type="radio"]:checked + .radio-custom {
+    border-color: #007bff;
+    background-color: #007bff;
+}
+
+.radio-option input[type="radio"]:checked + .radio-custom::after {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.radio-option input[type="radio"]:checked ~ .radio-label {
+    color: #007bff;
+    font-weight: 600;
+}
+
+.radio-label {
+    font-size: 14px;
+    color: #495057;
+    transition: color 0.2s ease;
+}
+
+.radio-option:has(input[type="radio"]:checked) {
+    border-color: #007bff;
+    background-color: #f0f8ff;
+}
+
+
+/* Footer Styling */
+footer {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 12px;
+    color: #6c757d;
+}
