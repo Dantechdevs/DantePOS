@@ -95,6 +95,8 @@ class AdminController extends Controller
         return $response->getBody();
     }
     /*====================================*/
+
+    /*===================================================*/
     public function authenticateRole($module_page)
     {
         // dd($module_page);
@@ -441,18 +443,22 @@ class AdminController extends Controller
         return redirect('/')->with('flash_message_success', 'Logout Successfully');
     }
     /*===================================================*/
-    public function  viewUsers()
+    public function viewUsers()
     {
         $this->authenticateRole($module_page = 'users');
+
         try {
             Session::put('page', 'viewUser');
 
-            return view('users.view');
+            $users = User::with('group')->get(); // FETCH USERS
+
+            return view('users.view', compact('users')); // PASS TO VIEW
         } catch (Exception $e) {
             Session::flash('flash_message_error', "Oops, Something went wrong. Try again");
             return redirect()->back()->with($e->getMessage());
         }
     }
+
     /********************************************************************/
     public function usersList(Request $request)
     {
@@ -552,13 +558,13 @@ class AdminController extends Controller
 
             $data = $request->all();
             try {
-            $editAdmin = User::find($id);
-            $editAdmin->name = $data['name'];
-            $editAdmin->group_id = $data['group_id'];
-            $editAdmin->mobile = $data['mobile'];
-            $editAdmin->address = $data['address'];
-            $editAdmin->save();
-            return redirect('/view-users')->with('success', 'User Successfully Updated!');
+                $editAdmin = User::find($id);
+                $editAdmin->name = $data['name'];
+                $editAdmin->group_id = $data['group_id'];
+                $editAdmin->mobile = $data['mobile'];
+                $editAdmin->address = $data['address'];
+                $editAdmin->save();
+                return redirect('/view-users')->with('success', 'User Successfully Updated!');
             } catch (Exception $e) {
                 Session::flash('flash_message_error', $e->getMessage());
                 return redirect()->back()->with($e->getMessage());

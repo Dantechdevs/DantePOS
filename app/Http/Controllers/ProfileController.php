@@ -19,6 +19,7 @@ class ProfileController extends Controller
         $id = $userId ?? Auth::id();
         $user =  User::with('group:id,name')->findOrFail($id);
 
+
         // Get all activity logs for the user with pagination
         $activityLogs = ActivityLog::where('user_id', $id)
             ->orderBy('created_at', 'desc')
@@ -39,6 +40,7 @@ class ProfileController extends Controller
         return view('users.user-profile', compact('user', 'activityLogs', 'loginActivities'));
     }
     /*====================================================================*/
+
     public function editUser(Request $request, $id = null)
     {
         if ($request->isMethod('post')) {
@@ -54,7 +56,7 @@ class ProfileController extends Controller
                 // $updateProfile->password = Hash::make($data['password']);
 
                 $updateProfile->save();
-                return redirect()->route('user.profile',$updateProfile->id)->with('success', 'User Profile Successfully Updated!');
+                return redirect()->route('user.profile', $updateProfile->id)->with('success', 'User Profile Successfully Updated!');
             } catch (Exception $e) {
                 Session::flash('flash_message_error', $e->getMessage());
                 return redirect()->back()->with($e->getMessage());
