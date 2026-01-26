@@ -29,7 +29,6 @@ class ProductRequest extends FormRequest
     {
         return [
             'name' => ['required', 'string', 'max:255', Rule::unique('products')->ignore($this->id)],
-            'name_ur' => ['required', 'string', 'max:255', Rule::unique('products')->ignore($this->id)],
             'is_scheme_product' => 'nullable',
             'product_code' => ['required', 'string', 'max:255', Rule::unique('products')->ignore($this->id)],
             'quantity' => 'required|numeric|min:0',

@@ -16,7 +16,7 @@ class Product extends Model
         'supplier_id',
         'product_code',
         'name',
-        'name_ur',
+        'description',
         'stock_alert',
         'expiry_date',
         'unit_info',

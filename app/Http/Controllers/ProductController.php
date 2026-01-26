@@ -204,7 +204,6 @@ class ProductController extends Controller
             // Create the product
             Product::create([
                 'name' => $validatedData['name'],
-                'name_ur' => $validatedData['name_ur'],
                 'is_scheme_product' => isset($validatedData['is_scheme_product']) ? true : false,
                 'stock_alert' => $validatedData['stock_alert'],
                 'expiry_date' => date('Y-m-d', strtotime($validatedData['expiry_date'])),
@@ -352,7 +351,6 @@ class ProductController extends Controller
             // Update the product
             $product->update([
                 'name' => $validatedData['name'],
-                'name_ur' => $validatedData['name_ur'],
                 'is_scheme_product' => isset($validatedData['is_scheme_product']) ? true : false,
                 'stock_alert' => $validatedData['stock_alert'],
                 'expiry_date' => date('Y-m-d', strtotime($validatedData['expiry_date'])),
@@ -452,14 +450,14 @@ class ProductController extends Controller
                 'cost',
                 'unit_info'
             ])
-            ->where(function ($query) use ($searchTerm,$customerType) {
+            ->where(function ($query) use ($searchTerm, $customerType) {
                 $query->where('name', 'LIKE', "%{$searchTerm}%")
                     ->orWhere('product_code', 'LIKE', "%{$searchTerm}%");
             })
             ->orderBy('name')
             ->limit(15)
             ->get()
-            ->map(function ($product) use($customerType) {
+            ->map(function ($product) use ($customerType) {
                 // Decode the unit_info JSON and find the default unit
                 $unitInfo = $product->unit_info;
                 $defaultUnit = null;

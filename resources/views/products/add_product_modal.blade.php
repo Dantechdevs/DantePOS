@@ -67,12 +67,6 @@
         border-left-color: #6a11cb !important;
     }
 
-    .urdu-input {
-        font-family: 'Jameel Noori Nastaleeq', 'Noto Nastaliq Urdu', 'Urdu Typesetting', sans-serif;
-        font-size: 1.1rem;
-        direction: rtl;
-    }
-
     /* Custom Switch Styling */
     .custom-switch-lg .custom-control-label::before {
         width: 3rem;
@@ -138,11 +132,9 @@
                                     </label>
                                     <select class="form-control select2" name="supplier_id" id="supplier_id" multiple
                                         required>
-                                        {{-- <option value="" selected disabled>Select Supplier</option> --}}
                                         @foreach ($suppliers as $supplier)
                                             <option value="{{ $supplier->id }}">{{ $supplier->name }}</option>
                                         @endforeach
-
                                     </select>
                                     <div class="invalid-feedback">Please select a supplier.</div>
                                 </div>
@@ -157,15 +149,13 @@
                                     <div class="invalid-feedback" id="name_error">Please provide a product name.</div>
                                 </div>
 
-                                <!-- Product Name Urdu -->
+                                <!-- Product Description -->
                                 <div class="form-group col-md-4">
-                                    <label for="name_ur" class="font-weight-600 required-field">
-                                        <i class="fas fa-language mr-1"></i>Product Name (Urdu)
+                                    <label for="description" class="font-weight-600">
+                                        <i class="fas fa-align-left mr-1"></i>Product Description
                                     </label>
-                                    <input type="text" class="form-control urdu-input" name="name_ur" id="name_ur"
-                                        placeholder="مثال: کافی" lang="ur">
-                                    <div class="invalid-feedback" id="name_ur_error"></div>
-                                    <small class="text-muted">Enable Urdu keyboard (Windows key + space)</small>
+                                    <textarea class="form-control" name="description" id="description" rows="2"
+                                        placeholder="Optional: Add details about the product"></textarea>
                                 </div>
                             </div>
 
@@ -185,17 +175,6 @@
                                     </div>
                                 </div>
                             </div>
-
-                            <!-- Product Description -->
-                            {{-- <div class="row mt-3">
-
-                                <div class="form-group col-md-12">
-                                    <label for="description" class="font-weight-600">
-                                        <i class="fas fa-align-left mr-1"></i>Description
-                                    </label>
-                                    <textarea class="form-control" name="description" id="description" rows="2" placeholder="Product description (optional)"></textarea>
-                                </div>
-                            </div> --}}
                         </div>
                     </div>
 
@@ -216,12 +195,10 @@
                                                 <!-- Unit Selection -->
                                                 <div class="col-md-2 mb-3">
                                                     <label class="font-weight-600 required-field">Unit</label>
-                                                    <select name="unit_id[]" class="form-control select2 unit-select"
-                                                        required>
+                                                    <select name="unit_id[]" class="form-control select2 unit-select" required>
                                                         <option value="" selected disabled>Select Unit</option>
                                                         @foreach ($units as $unit)
-                                                            <option value="{{ $unit['id'] }}">{{ $unit['name'] }}
-                                                            </option>
+                                                            <option value="{{ $unit['id'] }}">{{ $unit['name'] }}</option>
                                                         @endforeach
                                                     </select>
                                                     <div class="invalid-feedback">Please select a unit.</div>
@@ -232,14 +209,12 @@
                                                     <label class="font-weight-600 required-field">Conversion</label>
                                                     <div class="input-group">
                                                         <input type="number" name="conversion[]"
-                                                            class="form-control conversion-value" step="0.01"
-                                                            min="0.01" placeholder="1.00" required>
+                                                            class="form-control conversion-value" step="0.01" min="0.01" placeholder="1.00" required>
                                                         <div class="input-group-append">
                                                             <span class="input-group-text bg-light">units</span>
                                                         </div>
                                                     </div>
-                                                    <small class="form-text text-muted">How many base units equals this
-                                                        unit</small>
+                                                    <small class="form-text text-muted">How many base units equals this unit</small>
                                                     <div class="invalid-feedback">Please enter conversion value.</div>
                                                 </div>
 
@@ -248,12 +223,10 @@
                                                     <label class="font-weight-600 required-field">Cost Price</label>
                                                     <div class="input-group">
                                                         <div class="input-group-prepend">
-                                                            <span
-                                                                class="input-group-text bg-light">{{ $currency }}</span>
+                                                            <span class="input-group-text bg-light">{{ $currency }}</span>
                                                         </div>
                                                         <input type="number" name="purchase_price[]"
-                                                            class="form-control purchase-price" step="0.01"
-                                                            min="0" placeholder="0.00" required>
+                                                            class="form-control purchase-price" step="0.01" min="0" placeholder="0.00" required>
                                                     </div>
                                                     <div class="invalid-feedback">Please enter cost price.</div>
                                                 </div>
@@ -263,12 +236,10 @@
                                                     <label class="font-weight-600 required-field">Selling Price</label>
                                                     <div class="input-group">
                                                         <div class="input-group-prepend">
-                                                            <span
-                                                                class="input-group-text bg-light" id="currency-symbol" data-currency="{{ $currency }}">{{ $currency }}</span>
+                                                            <span class="input-group-text bg-light">{{ $currency }}</span>
                                                         </div>
                                                         <input type="number" name="selling_price[]"
-                                                            class="form-control selling-price" step="0.01"
-                                                            min="0" placeholder="0.00" required>
+                                                            class="form-control selling-price" step="0.01" min="0" placeholder="0.00" required>
                                                     </div>
                                                     <div class="invalid-feedback">Please enter selling price.</div>
                                                 </div>
@@ -278,12 +249,10 @@
                                                     <label class="font-weight-600 required-field">WholeSale Price</label>
                                                     <div class="input-group">
                                                         <div class="input-group-prepend">
-                                                            <span
-                                                                class="input-group-text bg-light">{{ $currency }}</span>
+                                                            <span class="input-group-text bg-light">{{ $currency }}</span>
                                                         </div>
                                                         <input type="number" name="wholesale_price[]"
-                                                            class="form-control wholesale-price" step="0.01"
-                                                            min="0" placeholder="0.00" required>
+                                                            class="form-control wholesale-price" step="0.01" min="0" placeholder="0.00" required>
                                                     </div>
                                                     <div class="invalid-feedback">Please enter wholesale price.</div>
                                                 </div>
@@ -291,19 +260,14 @@
                                                 <!-- Default Unit Selection -->
                                                 <div class="col-md-1 mb-3 d-flex align-items-center">
                                                     <div class="custom-control custom-radio">
-                                                        <input type="radio" id="default-unit-0" name="default_unit"
-                                                            value="0"
-                                                            class="custom-control-input default-unit-radio" checked>
-                                                        <label class="custom-control-label font-weight-600"
-                                                            for="default-unit-0">Default</label>
+                                                        <input type="radio" id="default-unit-0" name="default_unit" value="0" class="custom-control-input default-unit-radio" checked>
+                                                        <label class="custom-control-label font-weight-600" for="default-unit-0">Default</label>
                                                     </div>
                                                 </div>
 
                                                 <!-- Remove Button -->
-                                                <div
-                                                    class="col-md-1 mb-3 d-flex align-items-center justify-content-end">
-                                                    <button type="button"
-                                                        class="btn btn-sm btn-outline-danger remove-unit" disabled>
+                                                <div class="col-md-1 mb-3 d-flex align-items-center justify-content-end">
+                                                    <button type="button" class="btn btn-sm btn-outline-danger remove-unit" disabled>
                                                         <i class="fas fa-trash-alt"></i>
                                                     </button>
                                                 </div>
@@ -337,16 +301,14 @@
                                         <i class="fas fa-barcode mr-1"></i>Product Code
                                     </label>
                                     <div class="input-group">
-                                        <input type="text" class="form-control" name="product_code"
-                                            id="product_code" placeholder="PRD-001" required>
+                                        <input type="text" class="form-control" name="product_code" id="product_code" placeholder="PRD-001" required>
                                         <div class="input-group-append">
                                             <button class="btn btn-outline-primary" type="button" id="generateCode">
                                                 <i class="fas fa-bolt mr-1"></i> Generate
                                             </button>
                                         </div>
                                     </div>
-                                    <div class="invalid-feedback" id="product_code_error">Please provide a product
-                                        code.</div>
+                                    <div class="invalid-feedback" id="product_code_error">Please provide a product code.</div>
                                 </div>
 
                                 <!-- Quantity -->
@@ -355,8 +317,7 @@
                                         <i class="fas fa-cubes mr-1"></i>Stock
                                     </label>
                                     <div class="input-group">
-                                        <input type="number" class="form-control" name="quantity" id="quantity"
-                                            placeholder="0" min="0">
+                                        <input type="number" class="form-control" name="quantity" id="quantity" placeholder="0" min="0">
                                         <div class="input-group-append">
                                             <span class="input-group-text bg-light" id="base-unit-name">units</span>
                                         </div>
@@ -364,8 +325,6 @@
                                     <small class="form-text text-muted">Stock will be recorded in base units</small>
                                     <div class="invalid-feedback" id="quantity_error"></div>
                                 </div>
-
-
                             </div>
 
                             <div class="row">
@@ -375,61 +334,26 @@
                                         <i class="fas fa-bell mr-1"></i>Low Stock Alert
                                     </label>
                                     <div class="input-group">
-                                        <input type="number" class="form-control" name="stock_alert"
-                                            id="stock_alert" placeholder="e.g. 10" min="0">
+                                        <input type="number" class="form-control" name="stock_alert" id="stock_alert" placeholder="e.g. 10" min="0">
                                         <div class="input-group-append">
-                                            <span class="input-group-text bg-light"
-                                                id="base-unit-name-alert">units</span>
+                                            <span class="input-group-text bg-light" id="base-unit-name-alert">units</span>
                                         </div>
                                     </div>
                                     <small class="form-text text-muted">Get notified when stock is low</small>
                                     <div class="invalid-feedback" id="stock_alert_error"></div>
                                 </div>
+
                                 <!-- Expiry Date -->
                                 <div class="col-md-6 mb-4">
                                     <label for="expiry_date" class="font-weight-600">
                                         <i class="fas fa-calendar-times mr-1"></i>Expiry Date
                                     </label>
                                     <div class="input-group">
-                                        <input type="text" value="{{ date('d-m-Y', strtotime('+30 days')) }}"
-                                            class="form-control datepicker" name="expiry_date" id="datepicker">
-                                        {{-- <div class="input-group-append">
-                                            <span class="input-group-text bg-light"><i class="fas fa-calendar-alt"></i></span>
-                                        </div> --}}
+                                        <input type="text" value="{{ date('d-m-Y', strtotime('+30 days')) }}" class="form-control datepicker" name="expiry_date" id="datepicker">
                                     </div>
                                     <small class="form-text text-muted">Leave empty if not applicable</small>
                                     <div class="invalid-feedback" id="expiry_date_error"></div>
                                 </div>
-
-                                <!-- Tax Rate -->
-                                {{-- <div class="col-md-4 mb-4">
-                                    <label for="tax_rate" class="font-weight-600">
-                                        <i class="fas fa-percentage mr-1"></i>Tax Rate
-                                    </label>
-                                    <div class="input-group">
-                                        <input type="number" class="form-control" name="tax_rate" id="tax_rate"
-                                            placeholder="0.00" min="0" max="100" step="0.01">
-                                        <div class="input-group-append">
-                                            <span class="input-group-text bg-light">%</span>
-                                        </div>
-                                    </div>
-                                    <small class="form-text text-muted">Tax percentage applied to this product</small>
-                                </div> --}}
-
-                                <!-- Discount -->
-                                {{-- <div class="col-md-4 mb-4">
-                                    <label for="discount" class="font-weight-600">
-                                        <i class="fas fa-tag mr-1"></i>Discount
-                                    </label>
-                                    <div class="input-group">
-                                        <input type="number" class="form-control" name="discount" id="discount"
-                                            placeholder="0.00" min="0" max="100" step="0.01">
-                                        <div class="input-group-append">
-                                            <span class="input-group-text bg-light">%</span>
-                                        </div>
-                                    </div>
-                                    <small class="form-text text-muted">Default discount percentage</small>
-                                </div> --}}
                             </div>
                         </div>
                     </div>
@@ -448,86 +372,3 @@
         </div>
     </div>
 </div>
-
-<style>
-    .bg-gradient-primary {
-        background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%) !important;
-    }
-
-    .modal-xl {
-        max-width: 1200px;
-    }
-
-    .card-header {
-        border-bottom: 1px solid rgba(0, 0, 0, .05);
-    }
-
-    .unit-row {
-        border-left: 3px solid #6a11cb;
-        transition: all 0.3s ease;
-    }
-
-    .unit-row:hover {
-        box-shadow: 0 0.15rem 1rem rgba(0, 0, 0, 0.05);
-    }
-
-    .font-weight-600 {
-        font-weight: 600;
-    }
-
-    .font-weight-700 {
-        font-weight: 700;
-    }
-
-    .required-field::after {
-        content: "*";
-        color: #e74c3c;
-        margin-left: 4px;
-    }
-
-    .select2-container .select2-selection--single {
-        height: calc(2.25rem + 2px);
-    }
-
-    .select2-container--default .select2-selection--single .select2-selection__arrow {
-        height: calc(2.25rem + 2px);
-    }
-
-    .form-control,
-    .select2-selection {
-        border-radius: 0.375rem;
-        transition: all 0.3s;
-    }
-
-    .form-control:focus,
-    .select2-container--focus .select2-selection {
-        border-color: #6a11cb;
-        box-shadow: 0 0 0 0.2rem rgba(106, 17, 203, 0.15);
-    }
-
-    .btn {
-        border-radius: 0.375rem;
-        font-weight: 500;
-    }
-
-    .text-primary {
-        color: #6a11cb !important;
-    }
-
-    .border-left-primary {
-        border-left-color: #6a11cb !important;
-    }
-
-    .urdu-input {
-        font-family: 'Jameel Noori Nastaleeq', 'Noto Nastaliq Urdu', 'Urdu Typesetting', sans-serif;
-        font-size: 1.1rem;
-        direction: rtl;
-    }
-</style>
-
-<script>
-    // Add Urdu font support if needed
-    document.addEventListener('DOMContentLoaded', function() {
-        // You can add dynamic font loading here if required
-    });
-</script>

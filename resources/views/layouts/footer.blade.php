@@ -1,7 +1,7 @@
 @if(!isset($print_footer))
 <footer class="main-footer">
     <strong>
-        &copy; <?php echo date('Y'); ?> 
+        &copy; <?php echo date('Y'); ?>
         <a href="https://dantechdevelopers.com/" target="_blank">Dantechdevs - IT Company</a>.
     </strong>
     All rights reserved.

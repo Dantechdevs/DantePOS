@@ -372,9 +372,9 @@
 
         <!-- Office Details -->
         <div class="office-details">
-            <p>Developed by: <strong><i>Devpeller - Software Solutions</i></strong></p>
-            <p>Website: <a href="https://devpeller.com">https://devpeller.com</a></p>
-            <p>Mobile: 0336-6667686</p>
+            <p>Developed by: <strong><i>Dantechdevs - IT Company</i></strong></p>
+            <p>Website: <a href="https://dantechdevelopers.com">https://dantechdevelopers.com</a></p>
+            <p>Mobile: +254712328150</p>
         </div>
     </div>
 

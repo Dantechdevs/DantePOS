@@ -1,3 +1,3 @@
 <?php
 
-$timezone = 'Asia/Kabul';
+$timezone = 'Africa/Nairobi';

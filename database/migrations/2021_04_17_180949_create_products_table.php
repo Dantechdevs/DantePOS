@@ -19,7 +19,6 @@ class CreateProductsTable extends Migration
             $table->string('supplier_id')->nullable();
             $table->string('product_code');
             $table->string('name');
-            $table->string('name_ur')->nullable();
             $table->double('stock_alert', 10, 2)->default(0);
             $table->date('expiry_date')->nullable();
             $table->json('unit_info')->nullable();

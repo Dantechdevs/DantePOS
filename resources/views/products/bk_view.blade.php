@@ -6,30 +6,8 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.1/css/buttons.dataTables.min.css">
     <link rel="stylesheet" href="{{ asset('css/datatables_styles.css') }}">
     <link rel="stylesheet" href="{{ asset('css/trash.css') }}">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-keyboard@latest/build/css/index.css">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu&display=swap" rel="stylesheet">
-
-    <style>
-
-        .urdu-input {
-    font-family: 'Noto Nastaliq Urdu', 'Arial Unicode MS';
-    direction: rtl;
-    font-size: 18px;
-    text-align: right;
-}
-
-.keyboard-container {
-    display: none;
-    margin-top: 10px;
-}
-
-.hg-theme-default {
-    font-family: 'Noto Nastaliq Urdu', 'Arial Unicode MS';
-    direction: rtl;
-    text-align: right;
-}
-    </style>
 @endsection
+
 <div class="content-wrapper">
 
     <!-- Content Header (Page header) -->
@@ -59,7 +37,6 @@
                     <i class="fas fa-plus"></i> Add Product
                 </a>
             </div>
-
 
             <div class="card-body">
                 <!-- Flash Messages -->
@@ -96,83 +73,6 @@
 @endsection
 
 @push('custom-script')
-<!-- Load jQuery first -->
-
-
-<!-- Then SimpleKeyboard -->
-<script src="https://cdn.jsdelivr.net/npm/simple-keyboard@latest/build/index.min.js"></script>
-
-<script>
-// Wait for both DOM and SimpleKeyboard to be ready
-$(document).ready(function() {
-    let keyboard;
-    const $urduInput = $('#name_ur');
-    const $keyboardContainer = $('#urdu-keyboard-container');
-
-    // Pre-initialize keyboard when modal opens (if using modal)
-    $('.add-product').on('click', function() {
-        if (typeof window.SimpleKeyboard !== 'undefined' && !keyboard) {
-            initializeKeyboard();
-        }
-    });
-
-    function initializeKeyboard() {
-        try {
-            // Clear any existing keyboard
-            $keyboardContainer.empty();
-
-            keyboard = new window.SimpleKeyboard.default({
-                onChange: input => $urduInput.val(input),
-                onKeyPress: button => {
-                    if (button === "{shift}" || button === "{lock}") handleShift();
-                },
-                layout: {
-                    'default': [
-                        'ق و ع ر ت ی ؤ پ ء ا س د ف گ ہ ج ک ل',
-                        'ز ط ح خ ص ث ض ذ ش چ م ن ظ غ ۃ',
-                        '{space} {bksp}'
-                    ]
-                },
-                theme: "hg-theme-default",
-                physicalKeyboardHighlight: true,
-                preventMouseDownDefault: true
-            });
-
-            // Attach keyboard to container
-            $keyboardContainer.append(keyboard.getContainer());
-            return true;
-        } catch (e) {
-            console.error('Keyboard initialization failed:', e);
-            $urduInput.removeAttr('readonly');
-            return false;
-        }
-    }
-
-    function handleShift() {
-        if (!keyboard) return;
-        const newLayout = keyboard.options.layoutName === "default" ? "shift" : "default";
-        keyboard.setOptions({ layoutName: newLayout });
-    }
-
-    // Show keyboard when Urdu input is focused
-    $urduInput.on('focus', function() {
-        if (!keyboard) {
-            if (!initializeKeyboard()) {
-                return;
-            }
-        }
-        $keyboardContainer.show();
-    });
-
-    // Hide keyboard when clicking elsewhere
-    $(document).on('click', function(e) {
-        if (!$(e.target).closest('#name_ur, #urdu-keyboard-container').length) {
-            $keyboardContainer.hide();
-        }
-    });
-});
-</script>
-
 <!-- Rest of your scripts -->
 <script src="{{ asset('js/common/global.js') }}"></script>
 <script type="module" src="{{ asset('js/products/product.js') }}"></script>
